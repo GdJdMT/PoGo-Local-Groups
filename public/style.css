@@ -1,0 +1,270 @@
+/* styles */
+/* called by your view template */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+:root {
+  --body-bg-color:#e2e1e0;
+  --blue:#0050bb;
+  --red:#c63b2b;
+  --yellow:#D1ca22;
+  --green:#09AF00;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--body-bg-color,#e2e1e0);
+  font-family: 'Roboto','Arial', sans-serif;
+  transition:all .7s;
+}
+h1,h2 {
+  text-align:center;
+}
+main {
+  width:98%;
+  max-width:800px;
+  margin:1em auto;
+}
+section {
+  margin:1em 0;
+  padding:1em;
+  background-color:white;
+  border-radius:5px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+section:first-child{ 
+  text-align:center;
+}
+
+form {
+  display:grid;
+  margin:1em auto;
+  grid-template-columns:repeat(2,1fr);
+  align-items:center;
+}
+
+form > * {
+  margin:1em;
+}
+label:first-of-type,
+button {
+  grid-column:1 /span 2;
+}
+input[type="text"] {
+  margin: 0.5em auto;
+  padding: 0.5em;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+select {
+  font-family: 'Roboto','Arial', sans-serif;
+}
+fieldset {
+  padding:1em;
+}
+fieldset > div > label {
+  position: relative;
+  cursor: pointer;
+  margin:0.5em auto;
+  padding:0.6em 1.6em;
+  width:6em;
+  border-radius:5px;
+  color:white;
+  font-weight:bold;
+  font-size:0.9em;
+}
+#radioCont {
+  display:flex;
+  flex-wrap:wrap;
+}
+fieldset > div > label[for="blueRadio"] {
+  border:1px solid var(--blue);
+  background-color:var(--blue);
+}
+
+fieldset > div > label[for="yellowRadio"]{
+  border:1px solid var(--yellow);
+  background-color:var(--yellow);
+}
+
+fieldset > div > label[for="redRadio"]{
+  border:1px solid var(--red);
+  background-color:var(--red);
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.check {
+  position: absolute;
+  display:none;
+  top: 0.6em;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+}
+
+label input[type="radio"]:checked ~ .check {
+  display:block;
+}
+
+button {
+  width: 120px;
+  padding: 6px 16px;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+  line-height: 1.42857143;
+  box-shadow: 0 2px 4px rgba(0,0,0,.12);
+  background-color: var(--green, green);
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+button:hover {
+  background-color: #008B00;
+  box-shadow:0 3px 6px rgba(0, 0, 0, .6);
+}
+
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+.danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+li {
+  list-style:none;
+}
+#list {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows: max-content;
+  margin: 0 -1em -1em -1em;
+}
+#list > div {
+  position:relative;
+}
+.cont {
+  
+}
+ul {
+  z-index:1;
+  position:relative;
+  padding-left:1em;
+  font-size:0.9em;
+}
+
+.copy-all {
+  user-select: all;
+}
+#blueCont {
+  background-color:rgba(6, 119, 238,0.4);
+}
+#yellowCont {
+  background-color:rgba(251, 210, 8,0.4);
+}
+#redCont {
+  background-color:rgba(243, 21, 10,0.4);
+}
+#blueImg:after {
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-image:url(https://cdn.glitch.com/84fad80d-2e1c-4585-b3c4-ae66d226491e%2FTeam_Mysticw.png?1529612986306);
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center center;
+  opacity:0.2;
+}
+#yellowImg:after {
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-image:url(https://cdn.glitch.com/84fad80d-2e1c-4585-b3c4-ae66d226491e%2FTeam_Instinctw.png?1529612986596);
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center center;
+  opacity:0.5;
+}
+#redImg:after {
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-image:url(https://cdn.glitch.com/84fad80d-2e1c-4585-b3c4-ae66d226491e%2FTeam_Valorw.png?1529612986808);
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center center;
+  opacity:0.4;
+}
+td {
+  padding:0.1em 0.5em;
+}
+
+#gyms > li {
+  padding:0.15em;
+}
+
+#gyms > li:nth-child(even) {
+  background-color:#e2e2e2;
+  padding:0.15em;
+}
+
+
+@media (max-width:600px) {
+  #list {
+    font-size:2.5vw;
+  }
+}
+@media (max-width:475px) {
+  form {
+    display:flex;
+    flex-direction:column;
+  }
+  .time {
+    display:none;
+  }
+  #listsec,#list {
+    display:flex;
+    flex-direction:column;
+  }
+  #list {
+    font-size:1em;
+  }
+}
+footer {
+  margin-top:1em;
+  text-align:center;
+}
+footer a {
+  font-weight:bold;
+}

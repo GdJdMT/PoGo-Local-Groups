@@ -1,0 +1,28 @@
+{
+  "name": "PoGo Local Groups",
+  "version": "0.0.1",
+  "description": "A simple Node-Express app for Pokémon Go to store and exchange trainers' codes in a local group.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.1.6",
+    "body-parser": "^1.18.3",
+    "pug": "^2.0.3",
+    "moment": "^2.22.2",
+    "dotenv": "^6.0.0"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/volkano-okapi"
+  },
+  "license": "MIT",
+  "keywords": [
+    "pokemon go",
+    "pogo"
+  ]
+}
