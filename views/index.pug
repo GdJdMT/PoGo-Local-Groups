@@ -13,6 +13,8 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="/style.css")
   body
+    nav
+      a(href="#gymSection") Gyms
     header
       h1#mainHeading= title
     main
@@ -83,7 +85,7 @@ html(lang="en")
               td #{t.displayName}
               td
                 span.copy-all #{codeFormat(t.code)}
-      section
+      section#gymSection
         h2 Gyms nearby
         ul#gyms
           each g in gyms

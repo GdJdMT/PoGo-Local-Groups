@@ -1,5 +1,5 @@
 {
-  "name": "PoGo Local Groups",
+  "name": "PoGo-Local-Groups",
   "version": "0.0.1",
   "description": "A simple Node-Express app for Pokémon Go to store and exchange trainers' codes in a local group.",
   "main": "server.js",
