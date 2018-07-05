@@ -52,7 +52,7 @@ section {
   box-shadow:0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-section:first-child{
+section:first-child {
   text-align:center;
 }
 
@@ -184,9 +184,7 @@ li {
 #list > div {
   position:relative;
 }
-.cont {
 
-}
 ul {
   z-index:1;
   position:relative;
