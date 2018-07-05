@@ -34,8 +34,7 @@ app.get('/*', (req,res,next) => {
 
 apiRoutes(app);
 
-app.get("/:city?", conts.getCity);
-app.post('/new', conts.saveUser);
+app.route("/:city?").get(conts.getCity).post(conts.saveUser);
 // listen for requests :)
 const listener = app.listen(3000, () => {
   console.log('Your app is listening on port ' + listener.address().port);

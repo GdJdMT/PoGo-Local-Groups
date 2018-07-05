@@ -12,8 +12,8 @@ html(lang="en")
       h1#mainHeading= title
     main
       section#register
-        #response
-        form#form
+        include includes/flash
+        form#form(action=path method="POST")
           label(for="nick")
             | Nickname:
             input#nick(name="nick" type="text" maxlength="100" placeholder="Nickname" required="")

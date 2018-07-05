@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const trainerSchema = new Schema ({
   name: {type: String, unique:true},
   displayName: {type: String, unique:true},
-  city : [],
+  city : [{ type: String}],
   team: String,
   level: Number,
   code: String,
