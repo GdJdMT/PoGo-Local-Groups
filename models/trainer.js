@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const trainerSchema = new Schema ({
   name: {type: String, unique:true},
-  displayName:String,
+  displayName: {type: String, unique:true},
   city : [],
   team: String,
   level: Number,
