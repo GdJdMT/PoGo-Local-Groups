@@ -51,7 +51,8 @@ exports.getCity = (req, res) => {
         blue: blue,
         yellow: yellow,
         red: red,
-        gyms: gyms
+        gyms: gyms,
+        path: req.path.toLowerCase()
       });
     }
   }
@@ -59,15 +60,17 @@ exports.getCity = (req, res) => {
 
 exports.saveUser = (req,res) => {
   const cities = process.env.CITIES; // add approved cities here
-  const [nick, team, code, path] = [...Object.values(req.body)];
-  const city = path ? path : process.env.DEFCITY //set a default city
+  const [nick, team, code] = [...Object.values(req.body)];
+  const city = req.params.city ? req.params.city.toLowerCase() : process.env.DEFCITY //set a default city
   if (cities.includes(city)) {
     Trainer.findOne({name:nick.trim().toLowerCase()},(err,t) => {
       if (err){throw err;} else {
         if (!t) { t = new Trainer({}); }
         t.name = nick ? nick.trim().toLowerCase() : t.name;
         t.displayName = nick ? nick.trim() : t.displayName;
-        t.$addToSet = {city:city},
+          if (!t.city.includes(city)) {
+            t.city.push(city);
+          }
         t.team = team ? team : t.team;
         t.code = code ? code.trim() : t.code ? t.code : '';
         t.createdOn = t.createdOn ? t.createdOn : new Date();

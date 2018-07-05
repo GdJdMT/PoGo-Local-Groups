@@ -12,21 +12,3 @@ chooseTeam.addEventListener('change', (e) =>{
   document.body.style.setProperty('background-color',theme);
   document.getElementById('submit').style.setProperty('background-color',theme)
 });
-
-document.getElementById('form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const nick = document.getElementById('nick').value;
-  const team = document.querySelector('input[name="team"]:checked').value;
-  const code = document.getElementById('code').value;
-  const body = { nick: nick, team: team, code: code, city:path };
-  fetch('new', {body:JSON.stringify(body), method:'POST', headers: {
-      'content-type': 'application/json'
-    }})
-  .then(res=>res.json())
-  .then(res=>{
-    response.className += `alert ${res.success ? 'success' : 'danger'}`;
-    response.innerHTML = res.message;
-    if (res.success) { document.getElementById('submit').innerHTML = 'Done!';}
-  })
-  .catch(err=>{throw err});
-});
