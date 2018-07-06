@@ -1,0 +1,33 @@
+include includes/helpers
+html(lang="en")
+  head
+    include includes/header
+    link(rel="stylesheet" href="/profile.css")
+  body(style={background:user.team === 'blue' ? 'var(--blue)' : user.team === 'yellow' ? 'var(--yellow)' : 'var(--red)'})
+    main
+      .card.profile
+        include includes/flash
+        h2= user.displayName
+        .imgCont(class= user.team === 'blue' ? 'blueCont' : user.team === 'yellow' ? 'yellowCont' : 'redCont')
+          case (user.team)
+            when 'blue'
+              img(src='https://cdn.glitch.com/84fad80d-2e1c-4585-b3c4-ae66d226491e%2FTeam_Mysticw.png?1529612986306' alt = 'Team Mystic Logo')
+            when 'yellow'
+              img(src='https://cdn.glitch.com/84fad80d-2e1c-4585-b3c4-ae66d226491e%2FTeam_Instinctw.png?1529612986596' alt = 'Team Instinct Logo')
+            when 'red'
+              img(src='https://cdn.glitch.com/84fad80d-2e1c-4585-b3c4-ae66d226491e%2FTeam_Valorw.png?1529612986808' alt = 'Team Valor Logo')
+        .data
+          p 
+            strong Trainer code: 
+            span.copy-all #{user.code ? codeFormat(user.code) : 'N/A'}
+          p 
+            strong Level: 
+            | #{user.level ? user.level : 'N/A'}
+          h4 Local groups:
+          ul
+          for c in user.city
+            li
+              a(href=c) #{c.charAt(0).toUpperCase() + c.substr(1)}
+        -if (edit)
+          a(href="profile/edit") Edit
+  include includes/footer

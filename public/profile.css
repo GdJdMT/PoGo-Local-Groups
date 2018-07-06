@@ -1,0 +1,44 @@
+.profile {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-gap:20px;
+}
+
+.profile h2 {
+  grid-column:span 2;
+  padding-bottom:0.5em;
+  border-bottom:1px solid lightgray;
+}
+@media (max-width:500px) {
+  .profile {
+    display:flex;
+    flex-direction:column;
+  }
+}
+.profile img {
+  display:block;
+  width:200px;
+  height:200px;
+  margin:0 auto;
+}
+
+form.card.edit {
+  display:block;
+}
+
+.row {
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+}
+.row > * {
+  width:50%;
+  padding:0 1em;
+  margin: 0;
+}
+.row > label {
+  text-align:right;
+  font-style: italic;
+  line-height:1.5em;
+}

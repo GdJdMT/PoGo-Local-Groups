@@ -3,6 +3,8 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('cookie-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 const dotenv = require('dotenv').config();
 
 const app = express();
@@ -12,6 +14,7 @@ mongoose.connect(process.env.DB);
 const Trainer = require('./models/trainer');
 const conts = require('./controllers/conts');
 const apiRoutes = require('./routes/api.js');
+const userRoutes = require('./routes/user.js');
 
 app.use(express.static('public'));
 app.set('view engine', 'pug');
@@ -24,6 +27,12 @@ app.use(session({
 
 app.use(require('flash')());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(Trainer.authenticate()));
+passport.serializeUser(Trainer.serializeUser());
+passport.deserializeUser(Trainer.deserializeUser());
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
@@ -31,6 +40,7 @@ app.get('/*', (req,res,next) => {
   req.session.flash = [];
   next();
 });
+userRoutes(app);
 
 apiRoutes(app);
 

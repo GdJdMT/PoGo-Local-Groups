@@ -1,0 +1,15 @@
+html(lang="en")
+  head
+    include includes/header
+    link(rel="stylesheet" href="/login.css")
+  body
+    main#login
+      #loginForm.card
+        h2= title
+        form.flex(action="/register" method="POST")
+          label Nickname: 
+          input#nick(type="text" name="nick")
+          label Password: 
+          input#password(type="password" name="password")
+          input(type="submit")
+  include includes/footer

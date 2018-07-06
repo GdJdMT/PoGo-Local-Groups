@@ -8,14 +8,26 @@
   --yellow:#D1ca22;
   --green:#09AF00;
 }
-* {
+html {
+  height: 100%;
   box-sizing: border-box;
 }
-
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 body {
+  position: relative;
+  margin: 0;
+  padding: 2rem 0;
+  min-height: 100%;
   background: var(--body-bg-color,#e2e1e0);
   font-family: 'Roboto','Arial', sans-serif;
-  transition:all .7s;
+  transition:background .7s;
+}
+header {
+  padding: 1em;
 }
 h1,h2 {
   text-align:center;
@@ -44,7 +56,7 @@ main {
   max-width:800px;
   margin:1em auto;
 }
-section {
+.card {
   margin:1em 0;
   padding:1em;
   background-color:white;
@@ -70,7 +82,9 @@ label:first-of-type,
 button {
   grid-column:1 /span 2;
 }
-input[type="text"] {
+input[type="text"], 
+input[type="password"], 
+input[type="number"] {
   margin: 0.5em auto;
   padding: 0.5em;
   border-radius: 5px;
@@ -132,7 +146,8 @@ label input[type="radio"]:checked ~ .check {
   display:block;
 }
 
-button {
+button,
+input[type="submit"]{
   width: 120px;
   padding: 6px 16px;
   border-width: 0;
@@ -155,6 +170,7 @@ button:hover {
 }
 
 .alert {
+  grid-column:span 2;
   position: relative;
   padding: .75rem 1.25rem;
   margin-bottom: 1rem;
@@ -195,13 +211,13 @@ ul {
 .copy-all {
   user-select: all;
 }
-#blueCont {
+.blueCont {
   background-color:rgba(6, 119, 238,0.4);
 }
-#yellowCont {
+.yellowCont {
   background-color:rgba(251, 210, 8,0.4);
 }
-#redCont {
+.redCont {
   background-color:rgba(243, 21, 10,0.4);
 }
 #blueImg:after {
@@ -279,8 +295,14 @@ td {
   }
 }
 footer {
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
   margin-top:1em;
-  text-align:center;
 }
 footer a {
   font-weight:bold;
