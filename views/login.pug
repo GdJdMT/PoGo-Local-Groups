@@ -1,0 +1,17 @@
+html(lang="en")
+  head
+    include includes/header
+    link(rel="stylesheet" href="/login.css")
+  body
+    main#login
+      #loginForm.card
+        h2= title
+        include includes/flash
+        form.flex(action="/login" method="POST")
+          label Nickname: 
+          input#nick(type="text" name="nick")
+          label Password: 
+          input#password(type="password" name="password")
+          input(type="submit")
+  include includes/footer
+  

@@ -68,9 +68,9 @@ exports.saveUser = (req,res) => {
         if (!t) { t = new Trainer({}); }
         t.name = nick ? nick.trim().toLowerCase() : t.name;
         t.displayName = nick ? nick.trim() : t.displayName;
-          if (!t.city.includes(city)) {
-            t.city.push(city);
-          }
+        if (!t.city.includes(city)) {
+          t.city.push(city);
+        }
         t.team = team ? team : t.team;
         t.code = code ? code.trim() : t.code ? t.code : '';
         t.createdOn = t.createdOn ? t.createdOn : new Date();

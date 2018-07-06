@@ -1,7 +1,4 @@
--const gmUrl = 'https://www.google.it/maps/place/';
--function codeFormat(code) {
-  -return code.replace(/ /g,'').replace(/(\d{4})(\d{4})(\d{2})/, "$1 $2 $3") || ''
--}
+include includes/helpers
 doctype html
 html(lang="en")
   include includes/header.pug
@@ -11,12 +8,12 @@ html(lang="en")
     header
       h1#mainHeading= title
     main
-      section#register
+      section#register.card
         include includes/flash
         form#form(action=path method="POST")
           label(for="nick")
             | Nickname:
-            input#nick(name="nick" type="text" maxlength="100" placeholder="Nickname" required="")
+            input#nick(name="nick" type="text" pattern="[a-zA-Z0-9]+" title="Numbers and letters only" maxlength="16" placeholder="Nickname" required="")
           fieldset#team
             legend Choose your team
             #radioCont
@@ -36,10 +33,10 @@ html(lang="en")
             | Your trainer code:
             input#code(name="code" type="text" pattern="([0-9]{4}[ ]{0,1}){3}" placeholder="XXXX XXXX XXXX" minlength="12" maxlength="14" title="Insert only numbers, with or without spaces (ie 0000 0000 0000 or 123456789012)")
           button#submit(type="submit") Submit
-      section#listsec
+      section#listsec.card
         h2 Trainers' list
         #list
-          #blueCont
+          .blueCont
             #blueImg
               ul#blue
                 each t in blue
@@ -47,7 +44,7 @@ html(lang="en")
                     if t.code
                       | →
                       span.copy-all #{codeFormat(t.code)}
-          #yellowCont
+          .yellowCont
             #yellowImg
               ul#yellow
                 each t in yellow
@@ -55,7 +52,7 @@ html(lang="en")
                     if t.code
                       | →
                       span.copy-all #{codeFormat(t.code)}
-          #redCont
+          .redCont
             #redImg
               ul#red
                 each t in red
@@ -63,7 +60,7 @@ html(lang="en")
                     if t.code
                       | →
                       span.copy-all #{codeFormat(t.code)}
-      section
+      section.card
         h2 Latest updates
         table
           theader
@@ -78,7 +75,7 @@ html(lang="en")
               td #{t.displayName}
               td
                 span.copy-all #{codeFormat(t.code)}
-      section#gymSection
+      section#gymSection.card
         h2 Gyms nearby
         ul#gyms
           each g in gyms

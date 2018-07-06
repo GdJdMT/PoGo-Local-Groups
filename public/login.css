@@ -1,0 +1,8 @@
+main {
+  max-width:400px;
+}
+
+form.flex {
+  display:flex;
+  flex-direction:column;
+}
