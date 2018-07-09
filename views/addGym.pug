@@ -1,0 +1,20 @@
+html(lang="en")
+  head
+    include includes/header
+    link(rel="stylesheet" href="/login.css")
+  body
+    main
+      .card
+        h2= title
+        include includes/flash
+        form.flex(action="/admin/addgym" method="POST")
+          label Gym Name: 
+          input#gymName(type="text" name="gymName" required)
+          label City: 
+          input#city(type="text" name="city" required)
+          label Latitude: 
+          input#lat(type="number" name="lat" required)
+          label Latitude: 
+          input#lon(type="number" name="lon" required)
+          input(type="submit")
+  include includes/footer
