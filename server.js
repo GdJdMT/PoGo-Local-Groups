@@ -8,14 +8,14 @@ const LocalStrategy = require('passport-local');
 const dotenv = require('dotenv').config();
 
 const app = express();
-app.use(helmet())
+app.use(helmet());
 
 mongoose.connect(process.env.DB);
 const Trainer = require('./models/trainer');
 const conts = require('./controllers/conts');
 const apiRoutes = require('./routes/api.js');
 const userRoutes = require('./routes/user.js');
-
+const manageRoutes = require('./routes/admin.js');
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 
@@ -41,7 +41,7 @@ app.get('/*', (req,res,next) => {
   next();
 });
 userRoutes(app);
-
+manageRoutes(app);
 apiRoutes(app);
 
 app.route("/:city?").get(conts.getCity).post(conts.saveUser);
