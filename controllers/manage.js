@@ -3,7 +3,6 @@ const Trainer = require('../models/trainer.js');
 const Gym = require('../models/gym.js');
 
 exports.getUsers = (req,res) => {
-  console.log(req.session);
   const city = req.params.city;
   Trainer.find({city:city},'_id displayName team code', {sort: {name: 1}}, (err,users) => {
     res.render('users', {users:users});
