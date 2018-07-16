@@ -45,6 +45,15 @@ manageRoutes(app);
 apiRoutes(app);
 
 app.route("/:city?").get(conts.getCity).post(conts.saveUser);
+
+app.get('/:city/search', (req, res)=> {
+  const city = req.params.city;
+  res.render('search',{
+    title : 'Search',
+    city : city
+  });
+});
+
 // listen for requests :)
 const listener = app.listen(3000, () => {
   console.log('Your app is listening on port ' + listener.address().port);
