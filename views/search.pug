@@ -1,0 +1,16 @@
+html(lang="en")
+  head
+    include includes/header
+    link(rel="stylesheet" href="/login.css")
+    style(type="text/css").
+      .card {text-align:center;}
+  body
+    nav
+      a(href=city) Home
+    main
+      .card
+        h2 Search for a trainer
+        input#search(type="search" name="search" placeholder="Type something")
+        ul#result
+  script(src="search.js")
+  include includes/footer

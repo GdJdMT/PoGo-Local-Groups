@@ -42,13 +42,20 @@ nav {
 nav a {
   position:absolute;
   top:0;
-  left:1em;
   padding:0.25em 0.75em;
   text-decoration:none;
   text-transform:uppercase;
   font-weight:bold;
   color:white;
   background-color:var(--green);
+}
+
+nav a:first-child {
+  left:1em;
+}
+
+nav a:nth-child(2) {
+  left:8em;
 }
 
 main {
@@ -84,6 +91,7 @@ button {
 }
 input[type="text"], 
 input[type="password"], 
+input[type="search"], 
 input[type="number"] {
   margin: 0.5em auto;
   padding: 0.5em;

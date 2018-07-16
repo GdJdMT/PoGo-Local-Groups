@@ -8,6 +8,7 @@ exports.findLast = (city, limit, done) => {
 exports.findList = (city, done) => {
   Trainer.find({city:city},'displayName team code', {sort: {name: 1}}, done);
 };
+
 exports.findGyms = (city, done) => {
     let cities;
     if (city === 'test') {
@@ -16,6 +17,10 @@ exports.findGyms = (city, done) => {
       cities = city.charAt(0).toUpperCase() + city.slice(1);
     }
     Gym.find({city:cities},'name city coords',{sort : {city : 1}}, done);
+}
+
+exports.findUser = (city, q, done) => {
+  Trainer.find({city:city, name:{ "$regex": q, "$options": "i" }},'displayName name', {sort: {name: 1}}, done);
 }
 
 exports.getCity = (req, res) => {
@@ -46,6 +51,7 @@ exports.getCity = (req, res) => {
     if (last && list && gyms) {
       res.render('index', {
         title:`${city.charAt(0).toUpperCase() + city.substr(1)} local group`,
+        city: city,
         moment: require('moment'),
         last: last,
         blue: blue,
