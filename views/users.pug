@@ -1,0 +1,10 @@
+html(lang="en")
+  head
+    include includes/header
+  body
+    main#login
+      ul
+      for user in users
+        li= user.displayName+' '
+          a(href='/admin/delete/'+user._id) (Delete)
+  include includes/footer
