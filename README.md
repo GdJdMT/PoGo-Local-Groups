@@ -14,7 +14,7 @@ You'll need Node 8.x and a mongoDB database.
 ### Installing
 
 ```
-$ git clone https://github.com/
+$ git clone https://github.com/GdJdMT/PoGo-Local-Groups.git
 $ cd pokemongo
 $ npm install
 ```
@@ -84,6 +84,9 @@ Add the new trainer code in the appropriate field.
 
 ### Add gyms
 
+Logged in users can add gyms through a form.
+
+#### Legacy
 This part is quite picky, because it was a last minute addition...
 
 There is no form to add gyms at the moment. They can be added to the database using the following **temporary** code in server.js.
