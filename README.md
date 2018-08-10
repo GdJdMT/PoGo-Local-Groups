@@ -13,6 +13,7 @@ You'll need Node 8.x and a mongoDB database.
 
 ### Installing
 
+Assuming the directory is "pokemongo"...
 ```
 $ git clone https://github.com/GdJdMT/PoGo-Local-Groups.git
 $ cd pokemongo
