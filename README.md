@@ -87,6 +87,8 @@ Add the new trainer code in the appropriate field.
 Logged in users can add gyms through a form.
 
 #### Legacy
+(For old clones. The following is no longer needed)
+
 This part is quite picky, because it was a last minute addition...
 
 There is no form to add gyms at the moment. They can be added to the database using the following **temporary** code in server.js.
